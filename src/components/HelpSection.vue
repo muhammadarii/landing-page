@@ -132,7 +132,8 @@ export default {
         bg-color="#FF97D0"
         custom-class="text-black text-[26px] w-[322px] h-[72px] flex gap-4 items-center justify-center"
       >
-        apply for help<img
+        apply for help
+        <img
           :src="Arrow"
           alt="arrow"
           class="w-[40px] h-[30px] transform -scale-x-100"

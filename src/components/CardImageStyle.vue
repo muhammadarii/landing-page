@@ -19,10 +19,10 @@ defineProps({
     class="flex justify-center m-4 relative"
     :style="{ backgroundColor: bgColor }"
   >
-    <button
-      :class="`${customClass} border-4 ${borderColor} bg-transparent  text-xl font-semibold transition-all duration-300 relative hover:translate-x-2 hover:-translate-y-2`"
+    <div
+      :class="`${customClass} border-4 ${borderColor} bg-transparent px-4 py-2 text-xl font-semibold transition-all duration-300 relative hover:scale-90`"
     >
       <slot />
-    </button>
+    </div>
   </div>
 </template>

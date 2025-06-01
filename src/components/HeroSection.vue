@@ -62,7 +62,11 @@ export default {
 <template>
   <div class="bg-[#FCF944] w-full h-screen relative">
     <div class="fixed top-4 right-4">
-      <ButtonDonate bg-color="#ffffff">donate</ButtonDonate>
+      <ButtonDonate
+        bg-color="#ffffff"
+        custom-class="text-black w-[120.838px] h-[59.475px] text-[30px]"
+        >donate</ButtonDonate
+      >
     </div>
     <div class="flex flex-col justify-center items-center h-full">
       <div
