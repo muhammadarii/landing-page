@@ -1,4 +1,4 @@
-<script></script>
+<script setup></script>
 
 <template>
   <div class="bg-white w-full h-full p-[152px]">

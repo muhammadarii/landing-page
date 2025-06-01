@@ -1,4 +1,4 @@
-<script>
+<script setup>
 import CardImageStyle from "../components/CardImageStyle.vue";
 import Image1 from "../assets/images/62744ee9fce7fbaf400c22f8_2.jpg";
 import Image2 from "../assets/images/62744edaac91b4183ac27e10_5.jpg";
@@ -13,78 +13,70 @@ import Image10 from "../assets/images/627fc796cf3602b53a7512cf_4.jpg";
 import Image11 from "../assets/images/627fc7fcdc0f8e9cbcc8ffed_isa-logo-dog-clean.svg";
 import Image12 from "../assets/images/627fc81139e6f5dca2d02054_isa-logo-cat-clean.svg";
 
-export default {
-  components: {
-    CardImageStyle,
+const teamList = [
+  {
+    image: Image1,
+    name: "Daryna Deriy",
+    position: "Chairman of the Board",
   },
-  data() {
-    return {
-      teamList: [
-        {
-          image: Image1,
-          name: "Daryna Deriy",
-          position: "Chairman of the Board",
-        },
-        {
-          image: Image2,
-          name: "Polina Snisarenko-Kulchytska",
-          position: "Curator of the Foundation",
-        },
-        {
-          image: Image3,
-          name: "Bohdan Kulchytsky",
-          position: "Executive Manager",
-        },
-        {
-          image: Image4,
-          name: "Mykhaylo Deriy",
-          position: "Operation Manager",
-        },
-        {
-          image: Image5,
-          name: "Ksenia Nikishina",
-          position: "Office Manager",
-        },
-        {
-          image: Image6,
-          name: "Anna Andriychuk",
-          position: "SMM-manager",
-        },
-        {
-          image: Image7,
-          name: "Annastasia Kocalchuk",
-          position: "Director",
-        },
-        {
-          image: Image8,
-          name: "Basil Gloo",
-          position: "Web Developer",
-        },
-        {
-          image: Image9,
-          name: "Lina Yakobchuk",
-          position: "Designer",
-        },
-        {
-          image: Image10,
-          name: "Anastasia Yevchenko",
-          position: "Translator",
-        },
-        {
-          image: Image11,
-          name: "Office Manager",
-          position: "open vacancy",
-        },
-        {
-          image: Image12,
-          name: "SEO specialist",
-          position: "open vacancy",
-        },
-      ],
-    };
+  {
+    image: Image2,
+    name: "Polina Snisarenko-Kulchytska",
+    position: "Curator of the Foundation",
   },
-};
+  {
+    image: Image3,
+    name: "Bohdan Kulchytsky",
+    position: "Executive Manager",
+  },
+  {
+    image: Image4,
+    name: "Mykhaylo Deriy",
+    position: "Operation Manager",
+  },
+  {
+    image: Image5,
+    name: "Ksenia Nikishina",
+    position: "Office Manager",
+  },
+  {
+    image: Image6,
+    name: "Anna Andriychuk",
+    position: "SMM-manager",
+  },
+  {
+    image: Image7,
+    name: "Annastasia Kocalchuk",
+    position: "Director",
+  },
+  {
+    image: Image8,
+    name: "Basil Gloo",
+    position: "Web Developer",
+  },
+  {
+    image: Image9,
+    name: "Lina Yakobchuk",
+    position: "Designer",
+  },
+  {
+    image: Image10,
+    name: "Anastasia Yevchenko",
+    position: "Translator",
+  },
+  {
+    image: Image11,
+    name: "Office Manager",
+    position: "open vacancy",
+  },
+  {
+    image: Image12,
+    name: "SEO specialist",
+    position: "open vacancy",
+  },
+];
 </script>
+
 <template>
   <div class="bg-white w-full h-full p-[152px]">
     <h1 class="text-[61px] font-bold">Our Team</h1>

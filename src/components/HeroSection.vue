@@ -1,5 +1,7 @@
-<script>
+<script setup>
+import { ref, computed, onMounted } from "vue";
 import { gsap } from "gsap";
+
 import ButtonDonate from "../components/ButtonStyle.vue";
 import Image1 from "../assets/images/627fc7fcdc0f8e9cbcc8ffed_isa-logo-dog-clean.svg";
 import Image2 from "../assets/images/627fc81139e6f5dca2d02054_isa-logo-cat-clean.svg";
@@ -9,54 +11,40 @@ import Facebook from "../assets/images/627443d78de17d2c59c8352c_9055795_facebook
 import Patreon from "../assets/images/6274440c6a0ab7631dce0cd1_9055888_patreon_bxl.svg";
 import Telegram from "../assets/images/627443f9ac91b492e4c220ba_9055800_telegram_bxl.svg";
 
-export default {
-  components: {
-    ButtonDonate,
-  },
-  data() {
-    return {
-      images: [Image1, Image2],
-      currentIndex: 0,
-      Youtube,
-      Instagram,
-      Facebook,
-      Patreon,
-      Telegram,
-    };
-  },
-  computed: {
-    currentImage() {
-      return this.images[this.currentIndex];
-    },
-  },
-  mounted() {
-    this.startImageTransition();
-  },
-  methods: {
-    startImageTransition() {
-      setInterval(() => {
-        const img = this.$refs.logo;
+const logoList = [Youtube, Instagram, Facebook, Patreon, Telegram];
 
-        gsap.to(img, {
+const images = [Image1, Image2];
+const currentIndex = ref(0);
+const logo = ref(null);
+
+const currentImage = computed(() => images[currentIndex.value]);
+
+function startImageTransition() {
+  setInterval(() => {
+    if (!logo.value) return;
+
+    gsap.to(logo.value, {
+      duration: 0.2,
+      y: 100,
+      opacity: 0,
+      onComplete: () => {
+        currentIndex.value = (currentIndex.value + 1) % images.length;
+
+        gsap.set(logo.value, { y: -100 });
+
+        gsap.to(logo.value, {
           duration: 0.2,
-          y: 100,
-          opacity: 0,
-          onComplete: () => {
-            this.currentIndex = (this.currentIndex + 1) % this.images.length;
-
-            gsap.set(img, { y: -100 });
-
-            gsap.to(img, {
-              duration: 0.2,
-              y: 0,
-              opacity: 1,
-            });
-          },
+          y: 0,
+          opacity: 1,
         });
-      }, 3000);
-    },
-  },
-};
+      },
+    });
+  }, 3000);
+}
+
+onMounted(() => {
+  startImageTransition();
+});
 </script>
 
 <template>
@@ -85,28 +73,10 @@ export default {
       <p class="text-[40px]">charity organization</p>
       <div class="flex flex-row gap-4">
         <img
-          :src="Youtube"
-          alt="Youtube"
-          class="w-[50px] h-auto hover:scale-75 duration-300"
-        />
-        <img
-          :src="Instagram"
-          alt="Instagram"
-          class="w-[50px] h-auto hover:scale-75 duration-300"
-        />
-        <img
-          :src="Facebook"
-          alt="Facebook"
-          class="w-[50px] h-auto hover:scale-75 duration-300"
-        />
-        <img
-          :src="Patreon"
-          alt="Patreon"
-          class="w-[50px] h-auto hover:scale-75 duration-300"
-        />
-        <img
-          :src="Telegram"
-          alt="Telegram"
+          v-for="(image, index) in logoList"
+          :key="index"
+          :src="image"
+          alt="image"
           class="w-[50px] h-auto hover:scale-75 duration-300"
         />
       </div>
