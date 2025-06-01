@@ -49,9 +49,11 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-[#3E88FF] w-full h-full p-[152px] overflow-auto">
-    <h1 class="text-[61px] font-bold text-white">Our projects</h1>
-    <p class="text-[38px] text-white max-w-4xl">
+  <div class="bg-[#3E88FF] w-full h-full p-[20px] lg:p-[152px]">
+    <h1 class="text-[30px] lg:text-[61px] font-bold text-white">
+      Our projects
+    </h1>
+    <p class="lg:text-[38px] text-white max-w-4xl">
       Are very different in terms of priority, scale and complexity of
       implementation.
     </p>
@@ -63,11 +65,11 @@ onMounted(() => {
         :bgColor="project.color"
         :borderColor="'white'"
         :custom-class="'cardProject'"
-        Class="flex items-center text-white w-[1216px] h-[280px]"
+        Class="flex items-center text-white w-full h-[200px] lg:w-[1216px] lg:h-[280px]"
       >
-        <div class="m-12 space-y-4">
-          <h1 class="text-4xl font-semibold">{{ project.name }}</h1>
-          <p class="text-2xl">{{ project.description }}</p>
+        <div class="lg:m-12 space-y-4">
+          <h1 class="text-2xl lg:text-4xl font-semibold">{{ project.name }}</h1>
+          <p class="text-sm lg:text-2xl">{{ project.description }}</p>
         </div>
       </CardStyle>
     </div>

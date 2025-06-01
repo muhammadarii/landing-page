@@ -77,14 +77,14 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-[#FCF944] w-full h-full p-[152px]">
-    <h1 class="text-[61px] font-bold">We want to help</h1>
-    <p class="text-[38px]">
+  <div class="bg-[#FCF944] w-full h-full p-[20px] lg:p-[152px]">
+    <h1 class="text-[30px] lg:text-[61px] font-bold">We want to help</h1>
+    <p class="lg:text-[38px]">
       homeless packs, volunteers, guardians, overstayers, shelters and other
       organisations
     </p>
     <div
-      class="cardHelp grid grid-cols-3 items-center justify-center w-full mt-[56px]"
+      class="cardHelp grid grid-cols-2 lg:grid-cols-3 items-center justify-center w-full mt-[20px] lg:mt-[56px]"
     >
       <CardStyle
         v-for="(help, index) in helpList"
@@ -92,23 +92,25 @@ onMounted(() => {
         bgColor="#ffffff"
         border-color="border-black"
         custom-class="cardHelpItem"
-        Class="text-black w-[377px] h-[120px] items-center justify-center"
+        Class="text-black w-full h-[100px] lg:w-[377px] lg:h-[120px] items-center justify-center"
       >
-        <div class="flex items-center justify-center h-full p-[20px]">
-          <h1 class="text-[23px] text-center font-normal">{{ help.name }}</h1>
+        <div class="flex items-center justify-center h-full lg:p-[20px]">
+          <h1 class="text-[15px] lg:text-[23px] text-center font-normal">
+            {{ help.name }}
+          </h1>
         </div>
       </CardStyle>
     </div>
     <div class="buttonHelp w-fit mt-[143px]">
       <ButtonStyle
         bg-color="#FF97D0"
-        custom-class="text-black text-[26px] w-[322px] h-[72px] flex gap-4 items-center justify-center"
+        custom-class="text-black lg:text-[26px] w-[200px] h-[50px] text-[12px] lg:w-[322px] lg:h-[72px] flex gap-4 items-center justify-center"
       >
         apply for help
         <img
           :src="Arrow"
           alt="arrow"
-          class="w-[40px] h-[30px] transform -scale-x-100"
+          class="w-[20px] h-[15px] lg:w-[40px] lg:h-[30px] transform -scale-x-100"
         />
       </ButtonStyle>
     </div>

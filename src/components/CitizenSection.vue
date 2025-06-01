@@ -90,8 +90,8 @@ onMounted(() => {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
-        start: "top 95%",
-        end: "bottom 5%",
+        start: "top bottom",
+        end: "bottom top",
         toggleActions: "play reverse play reverse",
       },
       opacity: 0,
@@ -105,13 +105,13 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-[#FF97D0] w-full min-h-screen p-[152px]">
-    <h1 class="text-[61px] font-bold">Socially active citizens</h1>
-    <p class="text-[38px]">support us</p>
+  <div class="bg-[#FF97D0] w-full min-h-screen p-[20px] lg:p-[152px]">
+    <h1 class="text-[30px] lg:text-[61px] font-bold">
+      Socially active citizens
+    </h1>
+    <p class="lg:text-[38px]">support us</p>
 
-    <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mt-[56px]"
-    >
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 mt-[20px] lg:mt-[56px]">
       <div
         v-for="(citizen, index) in citizensList"
         :key="index"
@@ -122,11 +122,13 @@ onMounted(() => {
           alt="image"
           class="w-full aspect-[5/5] object-cover grayscale transition duration-300"
         />
-        <div class="flex flex-col items-center gap-2 p-4">
-          <h1 class="text-[23px] font-semibold text-black">
+        <div class="flex flex-col text-center items-center gap-2 p-4">
+          <h1 class="lg:text-[23px] font-semibold text-black">
             {{ citizen.name }}
           </h1>
-          <p class="text-[19px] text-black">{{ citizen.position }}</p>
+          <p class="text-[14px] lg:text-[19px] text-black">
+            {{ citizen.position }}
+          </p>
         </div>
       </div>
     </div>

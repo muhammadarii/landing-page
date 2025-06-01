@@ -103,20 +103,22 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white w-full h-full p-[152px]">
-    <h1 class="text-[61px] font-bold">Our Team</h1>
-    <p class="text-[38px]">
+  <div class="bg-white w-full h-full p-[20px] lg:p-[152px]">
+    <h1 class="text-[30px] lg:text-[61px] font-bold">Our Team</h1>
+    <p class="lg:text-[38px]">
       consists of completely different people who are united by a common desire
       - to help
     </p>
-    <div class="grid grid-cols-4 items-center justify-center w-full mt-[56px]">
+    <div
+      class="grid grid-cols-2 lg:grid-cols-4 items-center justify-center w-full mt-[20px] lg:mt-[56px]"
+    >
       <CardImageStyle
         v-for="(team, index) in teamList"
         :key="index"
         bgColor="#FCF944"
         border-color="border-black"
         custom-class="cardTeamItem"
-        Class="text-white w-[267.663px] h-[422.575px]"
+        Class="text-white w-full lg:w-[267.663px] h-[300.663px] lg:h-[422.575px]"
       >
         <div class="relative">
           <img
@@ -126,8 +128,8 @@ onMounted(() => {
           />
         </div>
         <div class="mt-[25px] flex flex-col gap-[10px]">
-          <h1 class="text-black text-center text-[23px]">{{ team.name }}</h1>
-          <p class="text-black text-center text-[19px]">
+          <h1 class="text-black text-center lg:text-[23px]">{{ team.name }}</h1>
+          <p class="text-black text-center text-[14px] lg:text-[19px]">
             {{ team.position }}
           </p>
         </div>

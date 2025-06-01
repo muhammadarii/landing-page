@@ -20,7 +20,7 @@ onMounted(() => {
     gsap.from(card, {
       scrollTrigger: {
         trigger: card,
-        start: "top 80%",
+        start: "top bottom",
         end: "bottom 20%",
         toggleActions: "play reverse play reverse",
       },
@@ -35,21 +35,21 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="bg-white w-full min-h-screen p-[152px]">
-    <h1 class="text-[61px] font-bold">Our partners</h1>
-    <p class="text-[38px] max-w-xl">
+  <div class="bg-white w-full h-full p-[20px] lg:p-[152px]">
+    <h1 class="text-[30px] lg:text-[61px] font-bold">Our partners</h1>
+    <p class="lg:text-[38px] max-w-xl">
       are take care of our fund and help us with many questions
     </p>
 
     <div
-      class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-14 mt-[56px] items-center justify-center w-full"
+      class="grid grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-14 mt-[56px] items-center justify-center w-full"
     >
       <img
         v-for="(image, index) in images"
         :key="index"
         :src="image"
         alt="partner logo"
-        class="cardPartnerItem w-[276px] h-[107px] object-contain object-center grayscale transition duration-300"
+        class="cardPartnerItem w-[120px] h-[50px] lg:w-[276px] lg:h-[107px] object-contain object-center grayscale transition duration-300"
       />
     </div>
   </div>
