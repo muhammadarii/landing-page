@@ -1,8 +1,12 @@
 <script setup>
-import { ref } from "vue";
 import CardStyle from "../components/CardStyle.vue";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
 
-const projectsList = ref([
+gsap.registerPlugin(ScrollTrigger);
+
+const projectsList = [
   {
     name: "Emergency Aid. WAR 2022.",
     description:
@@ -21,7 +25,27 @@ const projectsList = ref([
       "Lectures on communication, organisation and coordination of processes, control over the use of aid.",
     color: "#FF97D0",
   },
-]);
+];
+
+onMounted(() => {
+  const cards = gsap.utils.toArray(".cardProject");
+
+  cards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 70%",
+        end: "80% top",
+        toggleActions: "play reset play reverse",
+      },
+      opacity: 0,
+      x: -100,
+      duration: 0.8,
+      delay: i * 0.2,
+      ease: "power2.out",
+    });
+  });
+});
 </script>
 
 <template>
@@ -34,11 +58,12 @@ const projectsList = ref([
 
     <div class="flex flex-col items-center justify-center mt-6 space-y-6">
       <CardStyle
-        v-for="(project, index) in projectsList"
-        :key="index"
+        v-for="project in projectsList"
+        :key="project.name"
         :bgColor="project.color"
         :borderColor="'white'"
-        custom-class="text-white w-[1216px] h-[280px]"
+        :custom-class="'cardProject'"
+        Class="flex items-center text-white w-[1216px] h-[280px]"
       >
         <div class="m-12 space-y-4">
           <h1 class="text-4xl font-semibold">{{ project.name }}</h1>

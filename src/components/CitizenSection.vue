@@ -16,6 +16,12 @@ import image12 from "../assets/images/627fcc9bc50d7acc036982a9_03.jpg";
 import image13 from "../assets/images/627fcc7339e6f5389ed03013_02.jpg";
 import image14 from "../assets/images/627fcc4b694dfd4d65a13230_01.jpg";
 
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
+
+gsap.registerPlugin(ScrollTrigger);
+
 const citizensList = reactive([
   { image: image1, name: "Oleksiy Tritenko", position: "theater and actor" },
   {
@@ -76,6 +82,26 @@ const citizensList = reactive([
     position: "theater and film actress",
   },
 ]);
+
+onMounted(() => {
+  const cards = gsap.utils.toArray(".cardCitizenItem");
+
+  cards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 95%",
+        end: "bottom 5%",
+        toggleActions: "play reverse play reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.5,
+      delay: i * 0.01,
+      ease: "power2.out",
+    });
+  });
+});
 </script>
 
 <template>
@@ -89,12 +115,12 @@ const citizensList = reactive([
       <div
         v-for="(citizen, index) in citizensList"
         :key="index"
-        class="flex flex-col items-center"
+        class="cardCitizenItem flex flex-col items-center"
       >
         <img
           :src="citizen.image"
           alt="image"
-          class="w-full aspect-[4/5] object-cover grayscale transition duration-300"
+          class="w-full aspect-[5/5] object-cover grayscale transition duration-300"
         />
         <div class="flex flex-col items-center gap-2 p-4">
           <h1 class="text-[23px] font-semibold text-black">

@@ -19,7 +19,7 @@ const logo = ref(null);
 
 const currentImage = computed(() => images[currentIndex.value]);
 
-function startImageTransition() {
+const startImageTransition = () => {
   setInterval(() => {
     if (!logo.value) return;
 
@@ -40,7 +40,7 @@ function startImageTransition() {
       },
     });
   }, 3000);
-}
+};
 
 onMounted(() => {
   startImageTransition();

@@ -12,6 +12,11 @@ import Image9 from "../assets/images/626ae01da2a805d176b1606b_Якобчук.jpg
 import Image10 from "../assets/images/627fc796cf3602b53a7512cf_4.jpg";
 import Image11 from "../assets/images/627fc7fcdc0f8e9cbcc8ffed_isa-logo-dog-clean.svg";
 import Image12 from "../assets/images/627fc81139e6f5dca2d02054_isa-logo-cat-clean.svg";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const teamList = [
   {
@@ -75,6 +80,26 @@ const teamList = [
     position: "open vacancy",
   },
 ];
+
+onMounted(() => {
+  const cards = gsap.utils.toArray(".cardTeamItem");
+
+  cards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        end: "bottom 10%",
+        toggleActions: "play reverse play reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.5,
+      delay: i * 0.01,
+      ease: "power2.out",
+    });
+  });
+});
 </script>
 
 <template>
@@ -90,7 +115,8 @@ const teamList = [
         :key="index"
         bgColor="#FCF944"
         border-color="border-black"
-        custom-class="text-white w-[267.663px] h-[422.575px]"
+        custom-class="cardTeamItem"
+        Class="text-white w-[267.663px] h-[422.575px]"
       >
         <div class="relative">
           <img

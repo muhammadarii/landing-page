@@ -3,6 +3,11 @@ import { ref } from "vue";
 import CardStyle from "./CardStyle.vue";
 import ButtonStyle from "./ButtonStyle.vue";
 import Arrow from "../assets/images/6273a272fe3407579aa3d6c9_PngItem_344959.png";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { onMounted } from "vue";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const helpList = ref([
   { name: "Shelter of Victoria Bulbyna" },
@@ -36,6 +41,39 @@ const helpList = ref([
   { name: "SOS" },
   { name: "Best friends" },
 ]);
+
+onMounted(() => {
+  const cards = gsap.utils.toArray(".cardHelpItem");
+
+  cards.forEach((card, i) => {
+    gsap.from(card, {
+      scrollTrigger: {
+        trigger: card,
+        start: "top 80%",
+        end: "bottom 20%",
+        toggleActions: "play reverse play reverse",
+      },
+      opacity: 0,
+      y: 50,
+      duration: 0.5,
+      delay: i * 0.01,
+      ease: "power2.out",
+    });
+  });
+  gsap.from(".buttonHelp", {
+    scrollTrigger: {
+      trigger: ".buttonHelp",
+      start: "top 80%",
+      end: "bottom 20%",
+      toggleActions: "play none play reverse",
+    },
+    opacity: 0,
+    x: -100,
+    duration: 0.5,
+    delay: 0.5,
+    ease: "power2.out",
+  });
+});
 </script>
 
 <template>
@@ -45,20 +83,23 @@ const helpList = ref([
       homeless packs, volunteers, guardians, overstayers, shelters and other
       organisations
     </p>
-    <div class="grid grid-cols-3 items-center justify-center w-full mt-[56px]">
+    <div
+      class="cardHelp grid grid-cols-3 items-center justify-center w-full mt-[56px]"
+    >
       <CardStyle
         v-for="(help, index) in helpList"
         :key="index"
         bgColor="#ffffff"
         border-color="border-black"
-        custom-class="text-black w-[377px] h-[120px] items-center justify-center"
+        custom-class="cardHelpItem"
+        Class="text-black w-[377px] h-[120px] items-center justify-center"
       >
         <div class="flex items-center justify-center h-full p-[20px]">
           <h1 class="text-[23px] text-center font-normal">{{ help.name }}</h1>
         </div>
       </CardStyle>
     </div>
-    <div class="w-fit mt-[143px]">
+    <div class="buttonHelp w-fit mt-[143px]">
       <ButtonStyle
         bg-color="#FF97D0"
         custom-class="text-black text-[26px] w-[322px] h-[72px] flex gap-4 items-center justify-center"
