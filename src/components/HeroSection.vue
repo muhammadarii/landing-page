@@ -94,7 +94,7 @@ onMounted(() => {
 
 <template>
   <div class="bg-[#FCF944] w-full h-screen relative">
-    <div class="buttonDonate fixed top-2 right-2 lg:top-4 lg:right-4">
+    <div class="buttonDonate fixed top-2 right-2 lg:top-4 lg:right-4 z-50">
       <ButtonDonate
         bg-color="#ffffff"
         custom-class="px-2 lg:px-0 lg:w-[120.838px] lg:h-[59.475px] lg:text-[30px] font-normal"
