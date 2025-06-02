@@ -1,5 +1,23 @@
-# Vue 3 + Vite
+# PT SUMMIT GLOBAL TEKNOLOGI
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+## 🧰 Persyaratan Sistem
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Pastikan Anda sudah menginstall versi berikut:
+
+- **Node.js**: `>=16.0.0`
+- **npm**: `>=8.0.0` (jika menggunakan npm)
+- **Yarn** (opsional): `>=1.22.0`
+- **Vue.js**: `v3.x`
+
+> ✅ Gunakan perintah `node -v` dan `npm -v` untuk mengecek versi yang terpasang.
+
+## ⚙️ Langkah-langkah Instalasi
+
+1. **Clone repositori:**
+
+```bash
+git clone https://github.com/muhammadarii/landing-page.git
+cd landing-page
+npm install
+npm run dev
+```
